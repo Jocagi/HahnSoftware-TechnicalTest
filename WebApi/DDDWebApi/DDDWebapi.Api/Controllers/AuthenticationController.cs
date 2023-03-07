@@ -26,10 +26,10 @@ namespace DDDWebapi.Api.Controllers
                 request.Password
             );
             var response = new AuthenticationResponse(
-                result.Id,
-                result.FirstName,
-                result.LastName,
-                result.Email,
+                result.User.Id,
+                result.User.FirstName,
+                result.User.LastName,
+                result.User.Email,
                 result.Token
             );
             return Ok(response);
@@ -43,10 +43,10 @@ namespace DDDWebapi.Api.Controllers
                 request.Password
             );
             var response = new AuthenticationResponse(
-                result.Id,
-                result.FirstName,
-                result.LastName,
-                result.Email,
+                result.User.Id,
+                result.User.FirstName,
+                result.User.LastName,
+                result.User.Email,
                 result.Token
             );
             return Ok(response);

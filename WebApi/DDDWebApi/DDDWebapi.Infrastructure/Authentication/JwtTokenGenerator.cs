@@ -4,6 +4,7 @@ using System.Text;
 using DDDWebapi.Application.Common.Interfaces.Authentication;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using DDDWebapi.Domain.Entities;
 
 namespace WebApi.Infrastructure.Authentication
 {
@@ -16,13 +17,13 @@ namespace WebApi.Infrastructure.Authentication
             _jwtSettings = jwtSettings.Value;
         }
 
-        public string CreateToken(Guid userId, string firstName, string lastName)
+        public string CreateToken(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-                new Claim(JwtRegisteredClaimNames.GivenName, firstName),
-                new Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+                new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
