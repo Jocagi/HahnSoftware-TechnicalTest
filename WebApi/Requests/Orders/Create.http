@@ -1,0 +1,10 @@
+@host=https://localhost:7215
+
+POST {{host}}/orders
+Content-Type: application/json
+
+{
+    "CustomerName": "John Doe",
+    "OrderDate": "2019-01-01",
+    "TotalAmount": 100
+}
