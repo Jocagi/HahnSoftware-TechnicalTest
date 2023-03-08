@@ -1,5 +1,6 @@
 using DDDWebapi.Application.Services.Orders;
 using DDDWebapi.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDDWebapi.Api.Controllers
@@ -16,6 +17,7 @@ namespace DDDWebapi.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<Order>>> GetOrders()
         {
             var orders = await _orderService.GetOrdersAsync();
@@ -23,6 +25,7 @@ namespace DDDWebapi.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Order>> GetOrder(Guid id)
         {
             var order = await _orderService.GetOrderAsync(id);
@@ -36,6 +39,7 @@ namespace DDDWebapi.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Order>> AddOrder(Order order)
         {
             var addedOrder = await _orderService.AddOrderAsync(order);
@@ -43,6 +47,7 @@ namespace DDDWebapi.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult<Order>> UpdateOrder(Guid id, Order order)
         {
             if ((id != order.Id))
@@ -61,6 +66,7 @@ namespace DDDWebapi.Api.Controllers
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteOrder(Guid id)
     {
         await _orderService.DeleteOrderAsync(id);

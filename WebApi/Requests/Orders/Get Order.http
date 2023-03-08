@@ -1,12 +1,6 @@
 @host=https://localhost:7215
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZTk1MWUzNy05NTk0LTQ0MjItOGNjNy1kMDlkZTAwZWQyZGMiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwianRpIjoiYmEyZWJkMGMtYjYwNi00OThhLWEyNDktMGQ3ZTIzZTY4MWY5IiwiZXhwIjoxNjc4MzE0OTM0LCJpc3MiOiJIYWhuIiwiYXVkIjoiSGFobiJ9.W4Cnsrd7lf1BHVFMW0HolIyhZG279V8l9PUygAISLyI
 
-POST {{host}}/orders
+GET {{host}}/orders/70730e79-2aad-4f75-8acd-7a25913ee864
 Content-Type: application/json
 Authorization: Bearer {{token}}
-
-{
-    "CustomerName": "Test",
-    "OrderDate": "2019-01-01",
-    "TotalAmount": 1000
-}

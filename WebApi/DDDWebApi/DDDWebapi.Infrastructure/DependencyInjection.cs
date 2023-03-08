@@ -21,7 +21,8 @@ namespace DDDWebapi.Infrastructure
              services.AddDbContext<OrderContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("HahnDatabase")));
 
-
+            services.AddDbContext<UserContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("HahnDatabase")));
 
             services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
             services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
