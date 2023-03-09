@@ -1,0 +1,35 @@
+<div class="container">
+<form (ngSubmit)="register()" [formGroup]="registerForm">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+    <div *ngIf="registerForm.get('email')?.errors && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)" class="text-danger">
+      <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</div>
+      <div *ngIf="registerForm.get('email')?.errors?.['email']">Email must be a valid email address</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password">
+    <div *ngIf="registerForm.get('password')?.errors && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)" class="text-danger">
+      <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</div>
+      <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="Enter first name" formControlName="firstName">
+    <div *ngIf="registerForm.get('firstName')?.errors && (registerForm.get('firstName')?.dirty || registerForm.get('firstName')?.touched)" class="text-danger">
+      <div *ngIf="registerForm.get('firstName')?.errors?.['required']">First name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
+    <div *ngIf="registerForm.get('lastName')?.errors && (registerForm.get('lastName')?.dirty || registerForm.get('lastName')?.touched)" class="text-danger">
+      <div *ngIf="registerForm.get('lastName')?.errors?.['required']">Last name is required</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</div>

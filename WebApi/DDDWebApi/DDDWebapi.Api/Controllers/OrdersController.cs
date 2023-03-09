@@ -20,6 +20,10 @@ namespace DDDWebapi.Api.Controllers
         [Authorize]
         public async Task<ActionResult<List<Order>>> GetOrders()
         {
+            Console.WriteLine("GetOrders");
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
             var orders = await _orderService.GetOrdersAsync();
             return Ok(orders);
         }
@@ -28,6 +32,8 @@ namespace DDDWebapi.Api.Controllers
         [Authorize]
         public async Task<ActionResult<Order>> GetOrder(Guid id)
         {
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var order = await _orderService.GetOrderAsync(id);
 
             if (order == null)
@@ -42,6 +48,8 @@ namespace DDDWebapi.Api.Controllers
         [Authorize]
         public async Task<ActionResult<Order>> AddOrder(Order order)
         {
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             var addedOrder = await _orderService.AddOrderAsync(order);
             return CreatedAtAction(nameof(GetOrder), new { id = addedOrder.Id }, addedOrder);
         }
@@ -50,27 +58,31 @@ namespace DDDWebapi.Api.Controllers
         [Authorize]
         public async Task<ActionResult<Order>> UpdateOrder(Guid id, Order order)
         {
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             if ((id != order.Id))
-        {
-            return BadRequest();
+            {
+                return BadRequest();
+            }
+
+            var updatedOrder = await _orderService.UpdateOrderAsync(order);
+
+            if (updatedOrder == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedOrder);
         }
 
-        var updatedOrder = await _orderService.UpdateOrderAsync(order);
-
-        if (updatedOrder == null)
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteOrder(Guid id)
         {
-            return NotFound();
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            await _orderService.DeleteOrderAsync(id);
+            return NoContent();
         }
-
-        return Ok(updatedOrder);
     }
-
-    [HttpDelete("{id}")]
-    [Authorize]
-    public async Task<IActionResult> DeleteOrder(Guid id)
-    {
-        await _orderService.DeleteOrderAsync(id);
-        return NoContent();
-    }
-}
 }

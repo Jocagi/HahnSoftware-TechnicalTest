@@ -19,6 +19,10 @@ namespace DDDWebapi.Api.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+            //Call service 
             var result = _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
@@ -38,6 +42,10 @@ namespace DDDWebapi.Api.Controllers
         [HttpPost("login")]
         public IActionResult Login(LoginRequest request)
         {
+            Response.Headers.Add("Access-Control-Allow-Headers", "*");
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+            //Call service 
             var result = _authenticationService.Login(
                 request.Email,
                 request.Password
