@@ -1,0 +1,97 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .return-arrow {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .return-arrow i {
+    margin-right: 5px;
+  }
+  
+  .return-arrow:hover {
+    color: #ccc;
+    cursor: pointer;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  input[type="date"] {
+    padding-right: 26px;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

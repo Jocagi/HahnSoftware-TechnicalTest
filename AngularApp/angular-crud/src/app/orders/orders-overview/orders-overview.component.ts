@@ -46,7 +46,7 @@ export class OrdersOverviewComponent implements OnInit {
   }
 
   editOrder(order: Order): void {
-    // TODO: Implement edit functionality
+    this.router.navigateByUrl(`/edit/${order.id}`);
   }
 
   deleteOrder(order: Order): void {

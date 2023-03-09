@@ -11,6 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { OrdersOverviewComponent } from './orders/orders-overview/orders-overview.component';
 import { OrderCreateComponent } from './orders/create-order/create-order.component';
+import { OrderUpdateComponent } from './orders/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OrderCreateComponent } from './orders/create-order/create-order.compone
     LoginComponent,
     RegisterComponent,
     OrdersOverviewComponent,
-    OrderCreateComponent
+    OrderCreateComponent,
+    OrderUpdateComponent
   ],
   imports: [
     BrowserModule,
