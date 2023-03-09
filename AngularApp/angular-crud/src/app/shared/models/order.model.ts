@@ -13,3 +13,16 @@ export class Order {
         this.totalAmount = 0;
     };
 }
+
+export class CreateOrder {
+    
+    customerName: string;
+    orderDate: Date;
+    totalAmount: number;
+
+    constructor() {
+        this.customerName = '';
+        this.orderDate = new Date();
+        this.totalAmount = 0;
+    };
+}

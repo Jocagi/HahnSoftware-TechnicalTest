@@ -1,4 +1,9 @@
-<form (ngSubmit)="createOrder(orderForm)" #orderForm="ngForm">
+<nav class="navbar">
+  <a class="return-arrow" (click)="returnToOrdersOverview()"><i class="fa fa-arrow-left"></i> Back</a>
+</nav>
+
+<div class="container">
+  <form (ngSubmit)="createOrder(orderForm)" #orderForm="ngForm">
     <div>
       <label for="customerName">Customer Name:</label>
       <input type="text" id="customerName" name="customerName" [(ngModel)]="order.customerName" required>
@@ -13,4 +18,4 @@
     </div>
     <button type="submit">Create Order</button>
   </form>
-  
+</div>

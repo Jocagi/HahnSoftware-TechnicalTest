@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Order } from '../models/order.model';
+import { CreateOrder, Order } from '../models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +25,9 @@ export class OrdersService {
     return this.http.get<Order>(`${this.apiUrl}/${id}`, { headers });
   }
 
-  addOrder(order: Order, token: string): Observable<Order> {
+  addOrder(order: CreateOrder, token: string): Observable<CreateOrder> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post<Order>(this.apiUrl, order, { headers });
+    return this.http.post<CreateOrder>(this.apiUrl, order, { headers });
   }
 
   updateOrder(order: Order, token: string): Observable<Order> {

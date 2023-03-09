@@ -54,7 +54,7 @@ export class OrdersOverviewComponent implements OnInit {
   }
 
   createOrder(): void {
-    // TODO: Implement create functionality
+    this.router.navigateByUrl('/create');
   }
 
 }
