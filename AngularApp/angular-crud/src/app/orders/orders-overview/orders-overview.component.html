@@ -4,6 +4,16 @@
       <li><button (click)="logout()">Logout</button></li>
     </ul>
   </nav>
+
+  <div class="table-header">
+    <h2>Orders</h2>
+    <div class="filters">
+      <input type="text" placeholder="Search" [(ngModel)]="searchText">
+      <button (click)="applyFilters()">Apply</button>
+      <button (click)="clearFilters()">Clear</button>
+    </div>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -11,15 +21,23 @@
         <th>Customer Name</th>
         <th>Order Date</th>
         <th>Total Amount</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of orders">
+      <tr *ngFor="let order of filteredOrders">
         <td>{{ order.id }}</td>
         <td>{{ order.customerName }}</td>
         <td>{{ order.orderDate }}</td>
         <td>{{ order.totalAmount }}</td>
+        <td>
+          <button (click)="editOrder(order)">Edit</button>
+          <button (click)="deleteOrder(order)">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <br>
+
+  <button (click)="createOrder()">Create New Order</button>
 </div>

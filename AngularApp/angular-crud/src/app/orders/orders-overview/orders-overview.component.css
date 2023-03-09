@@ -25,6 +25,23 @@
     margin-right: 10px;
   }
   
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 20px;
+  }
+  
+  .filters {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filters input[type="text"] {
+    margin-right: 10px;
+  }
+  
   table {
     width: 80%;
     margin-top: 20px;
@@ -37,5 +54,35 @@
     padding: 10px;
     text-align: left;
     border: 1px solid #ccc;
+  }
+  
+  th:last-child,
+  td:last-child {
+    text-align: center;
+  }
+  
+  th:last-child {
+    width: 20%;
+  }
+  
+  td:last-child {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  button:active {
+    transform: translateY(1px);
   }
   
