@@ -1,0 +1,15 @@
+<h1>Orders</h1>
+
+<!-- Filter section -->
+<div class="filter-section">
+  <h2>Filter by status:</h2>
+  <mat-radio-group [(ngModel)]="selectedStatus" (change)="filterOrders()">
+    <mat-radio-button *ngFor="let status of statuses" [value]="status">{{status}}</mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<!-- Order list -->
+<div class="order-list">
+  <app-order-item *ngFor="let order of filteredOrders" [order]="order"></app-order-item>
+  <div *ngIf="filteredOrders.length === 0">No orders found.</div>
+</div>

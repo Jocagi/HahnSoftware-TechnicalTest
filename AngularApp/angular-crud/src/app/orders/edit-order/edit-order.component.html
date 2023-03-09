@@ -1,0 +1,16 @@
+<h1>Edit Order</h1>
+<form #orderForm="ngForm" (ngSubmit)="updateOrder(orderForm)">
+  <div>
+    <label for="customerName">Customer Name</label>
+    <input type="text" id="customerName" name="customerName" [(ngModel)]="order.customerName" required>
+  </div>
+  <div>
+    <label for="orderDate">Order Date</label>
+    <input type="date" id="orderDate" name="orderDate" [(ngModel)]="order.orderDate" required>
+  </div>
+  <div>
+    <label for="totalAmount">Total Amount</label>
+    <input type="number" id="totalAmount" name="totalAmount" [(ngModel)]="order.totalAmount" required>
+  </div>
+  <button type="submit" [disabled]="orderForm.invalid">Update Order</button>
+</form>

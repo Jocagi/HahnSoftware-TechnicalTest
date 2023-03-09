@@ -39,12 +39,28 @@ var builder = WebApplication.CreateBuilder(args);
             ValidateAudience = false
         };
     });
+
+    //use cors
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAnyOrigin", builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .WithMethods("POST")
+                .WithExposedHeaders("Access-Control-Allow-Origin")
+                .WithExposedHeaders("Access-Control-Allow-Headers")
+                .WithExposedHeaders("Access-Control-Allow-Methods");
+        });
+    });
 }
 
 var app = builder.Build();
 {
     //app.UseMiddleware<ErrorHandlingMiddleWare>();
-    app.UseHttpsRedirection();
+    app.UseCors("AllowAnyOrigin");
+    //app.UseHttpsRedirection();
     app.UseAuthentication();
     app.UseRouting();
     app.UseAuthorization();
