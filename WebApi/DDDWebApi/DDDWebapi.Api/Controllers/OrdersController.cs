@@ -20,6 +20,7 @@ namespace DDDWebapi.Api.Controllers
         [Authorize]
         public async Task<ActionResult<List<Order>>> GetOrders()
         {
+            Console.WriteLine("GetOrders");
             Response.Headers.Add("Access-Control-Allow-Headers", "*");
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
 

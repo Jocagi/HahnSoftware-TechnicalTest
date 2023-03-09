@@ -8,13 +8,16 @@ import { Order } from '../models/order.model';
 })
 export class OrdersService {
 
-  private apiUrl = 'https://localhost:5199/orders';
+  private apiUrl = 'http://localhost:5199/orders';
 
   constructor(private http: HttpClient) { }
 
   getOrders(token: string): Observable<Order[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    console.log('OrdersService.getOrders(): token:', token);
+    console.log('OrdersService.getOrders(): headers:', headers);
     return this.http.get<Order[]>(this.apiUrl, { headers });
+
   }
 
   getOrderById(id: string, token: string): Observable<Order> {
