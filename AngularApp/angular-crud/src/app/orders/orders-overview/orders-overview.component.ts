@@ -50,7 +50,13 @@ export class OrdersOverviewComponent implements OnInit {
   }
 
   deleteOrder(order: Order): void {
-    // TODO: Implement delete functionality
+    this.ordersService.deleteOrder(order.id, AuthService.token)
+      .subscribe(() => {
+        console.log(`Deleted order with id: ${order.id}`);
+        alert(`Deleted order with id: ${order.id}`);
+        //refresh orders
+        this.getOrders();
+      });
   }
 
   createOrder(): void {

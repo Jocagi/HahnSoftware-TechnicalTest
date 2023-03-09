@@ -49,6 +49,9 @@ var builder = WebApplication.CreateBuilder(args);
                 .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .WithMethods("POST")
+                .WithMethods("GET")
+                .WithMethods("DELETE")
+                .WithMethods("PUT")
                 .WithExposedHeaders("Access-Control-Allow-Origin")
                 .WithExposedHeaders("Access-Control-Allow-Headers")
                 .WithExposedHeaders("Access-Control-Allow-Methods");
